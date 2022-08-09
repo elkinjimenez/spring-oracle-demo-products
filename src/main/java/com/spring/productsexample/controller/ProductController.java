@@ -15,24 +15,37 @@ import com.spring.productsexample.model.Product;
 import com.spring.productsexample.service.ProductService;
 
 @RestController
-@RequestMapping("products")
+// @RequestMapping("/")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ProductController {
 
   @Autowired
   private ProductService service;
 
-  @GetMapping("/list")
+  @GetMapping("/")
+  public String main() {
+    return "Hola, mi bombre es Elkin. (Estoy en la raíz del proyecto)";
+  }
+
+  @GetMapping("/home")
+  public String mainHome() {
+    return "Hola, mi bombre es Elkin. (Estoy en el HOME)";
+  }
+
+  // @GetMapping("/list")
+  @GetMapping("products/list")
   public ResponseEntity<List<Product>> getList() {
     return new ResponseEntity<>(service.productList(), HttpStatus.OK);
   }
 
-  @GetMapping("/findByName")
+  // @GetMapping("/findByName")
+  @GetMapping("products/findByName")
   public ResponseEntity<List<Product>> findByName(@RequestParam(required = true) String name) {
     return new ResponseEntity<>(service.findByName(name), HttpStatus.OK);
   }
 
-  @GetMapping("/findByNameContaining")
+  // @GetMapping("/findByNameContaining")
+  @GetMapping("products/findByNameContaining")
   public ResponseEntity<List<Product>> findByNameContaining(@RequestParam(required = true) String name) {
     return new ResponseEntity<>(service.findByNameContaining(name), HttpStatus.OK);
   }
