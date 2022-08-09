@@ -24,12 +24,12 @@ public class ProductController {
 
   @GetMapping("/")
   public String main() {
-    return "Hola, mi bombre es Elkin. (Estoy en la raíz del proyecto)";
+    return "Hola, mi nombre es Elkin J. (Estoy en la raíz del proyecto)";
   }
 
   @GetMapping("/home")
   public String mainHome() {
-    return "Hola, mi bombre es Elkin. (Estoy en el HOME)";
+    return "Hola, mi nombre es Elkin J. (Estoy en el HOME)";
   }
 
   // @GetMapping("/list")
